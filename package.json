@@ -1,0 +1,17 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.18.0",
+    "claudia-bot-builder": "^2.13.2",
+    "lodash": "^4.17.4",
+    "snow-forecast-sfr": "^1.4.0"
+  }
+}
