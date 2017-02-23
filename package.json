@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "create": "claudia create --api-module bot --region us-east-1 --timeout 120 --allow-recursion --configure-slack-slash-command",
+    "deploy": "claudia update",
+    "undeploy": "claudia destroy",
+    "test": "claudia test-lambda --event ./tests/test.json"
   },
   "author": "",
   "license": "ISC",

@@ -13,14 +13,14 @@ const api = botBuilder((message, apiRequest) => {
       Qualifier: apiRequest.lambdaContext.functionVersion,
       InvocationType: 'Event',
       Payload: JSON.stringify({
-        slackEvent: message // this will enable us to detect the event later and filter it
+        slackEvent: message
       })
     }, (err, done) => {
       if (err) return reject(err);
       resolve(done);
     });
   }).then(() => {
-    return { // the initial response
+    return {
       text: `Ok, Let me check ...`,
       response_type: 'in_channel'
     }
@@ -32,8 +32,8 @@ const api = botBuilder((message, apiRequest) => {
 api.intercept((event) => {
   if (!event.slackEvent) return event;
 
-  const message = event.slackEvent; //original slack message sent to bot
-  const place = message.text; // 'Pas-de-la-Casa'
+  const message = event.slackEvent;
+  const place = message.text;
 
   if (!_.trim(message.text).length) {
     return slackDelayedReply(message, {
